@@ -3,21 +3,22 @@ import pandas as pd
 from pathlib import Path
 import logging
 
-# create logger
-logger = logging.getLogger("data_cleaning")
-logger.setLevel(logging.INFO)
+# logging configuration
+logger = logging.getLogger('data_preprocessing')
+logger.setLevel(logging.DEBUG)
 
-# console handler
-handler = logging.StreamHandler()
-handler.setLevel(logging.INFO)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)
 
-# add handler to logger
-logger.addHandler(handler)
+file_handler = logging.FileHandler('errors.log')
+file_handler.setLevel(logging.DEBUG)
 
-# create a fomratter
-formatter = logging.Formatter(fmt='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-# add formatter to handler
-handler.setFormatter(formatter)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(formatter)
+file_handler.setFormatter(formatter)
+
+logger.addHandler(console_handler)
+logger.addHandler(file_handler)
 
 columns_to_drop =  ['rider_id',
                     'restaurant_latitude',
