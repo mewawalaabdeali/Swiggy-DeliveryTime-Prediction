@@ -10,14 +10,14 @@ Train:
     max_features: 1
     min_samples_split: 9
     min_samples_leaf: 3
-    max_samples: 0.6603673526197066
+    max_samples: 0.67
     verbose: 1
     n_jobs: -1
 
   LightGBM:
     n_estimators: 159
     max_depth: 27
-    learning_rate: 0.22234435854395157
+    learning_rate: 0.25
     subsample: 0.7592213724048168
     min_child_weight: 20
     min_split_gain: 0.004604680609280751

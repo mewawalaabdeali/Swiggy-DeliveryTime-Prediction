@@ -84,7 +84,7 @@ stages:
         Train.LightGBM:
           n_estimators: 159
           max_depth: 27
-          learning_rate: 0.22234435854395157
+          learning_rate: 0.25
           subsample: 0.7592213724048168
           min_child_weight: 20
           min_split_gain: 0.004604680609280751
@@ -97,22 +97,22 @@ stages:
           max_features: 1
           min_samples_split: 9
           min_samples_leaf: 3
-          max_samples: 0.6603673526197066
+          max_samples: 0.67
           verbose: 1
           n_jobs: -1
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: 1ef3df6c910736856ecabe5ae947218e
-      size: 133071864
+      md5: 6beebc4bcf94d0959dfbe9d84acf06cd
+      size: 134896296
     - path: models/power_transformer.joblib
       hash: md5
       md5: 9e9f59eb61e5d4af7ff5f77a00f3055a
       size: 837
     - path: models/stacking_regressor.joblib
       hash: md5
-      md5: 3bb41fb0414ae472dddadfb039837086
-      size: 133067946
+      md5: 86e72e26cbd493926aa596c3e47de500
+      size: 134892378
   evaluation:
     cmd: python src/models/evaluation.py
     deps:
@@ -126,8 +126,8 @@ stages:
       size: 4329420
     - path: models/model.joblib
       hash: md5
-      md5: 1ef3df6c910736856ecabe5ae947218e
-      size: 133071864
+      md5: 6beebc4bcf94d0959dfbe9d84acf06cd
+      size: 134896296
     - path: src/models/evaluation.py
       hash: md5
       md5: 1ec7a13e58f60e3bb1e5b602e81d9198
@@ -135,14 +135,14 @@ stages:
     outs:
     - path: run_information.json
       hash: md5
-      md5: f1fffa57e1bd3c51127dccebd6fcdce4
+      md5: 327599c1fd8b07e05c09b2c88be8b762
       size: 225
   register_model:
     cmd: python src/models/register_model.py
     deps:
     - path: run_information.json
       hash: md5
-      md5: f1fffa57e1bd3c51127dccebd6fcdce4
+      md5: 327599c1fd8b07e05c09b2c88be8b762
       size: 225
     - path: src/models/register_model.py
       hash: md5
