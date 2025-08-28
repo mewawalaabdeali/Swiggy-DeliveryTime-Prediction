@@ -93,7 +93,7 @@ stages:
         Train.Random_Forest:
           n_estimators: 479
           criterion: squared_error
-          max_depth: 19
+          max_depth: 21
           max_features: 1
           min_samples_split: 10
           min_samples_leaf: 5
@@ -103,16 +103,16 @@ stages:
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: 116abfd68a164ce04a021d880b12dd85
-      size: 95742936
+      md5: e310838fefb3310c3792095b644b3678
+      size: 96833592
     - path: models/power_transformer.joblib
       hash: md5
       md5: 371595595ca94439efa5840341ae20c7
       size: 837
     - path: models/stacking_regressor.joblib
       hash: md5
-      md5: 0dc13a89ab4111a7956b628e2ddd503e
-      size: 95739018
+      md5: 67f99d30d8d9ba676a5c720f9a08032b
+      size: 96829674
   evaluation:
     cmd: python src/models/evaluation.py
     deps:
@@ -126,8 +126,8 @@ stages:
       size: 4333391
     - path: models/model.joblib
       hash: md5
-      md5: 116abfd68a164ce04a021d880b12dd85
-      size: 95742936
+      md5: e310838fefb3310c3792095b644b3678
+      size: 96833592
     - path: src/models/evaluation.py
       hash: md5
       md5: 1ec7a13e58f60e3bb1e5b602e81d9198
@@ -135,14 +135,14 @@ stages:
     outs:
     - path: run_information.json
       hash: md5
-      md5: 15a758f75f44a52911f2b28d9a8380fe
+      md5: 48aa1388a216b42b24312baa881c7985
       size: 225
   register_model:
     cmd: python src/models/register_model.py
     deps:
     - path: run_information.json
       hash: md5
-      md5: 15a758f75f44a52911f2b28d9a8380fe
+      md5: 48aa1388a216b42b24312baa881c7985
       size: 225
     - path: src/models/register_model.py
       hash: md5

@@ -6,7 +6,7 @@ Train:
   Random_Forest:
     n_estimators: 479
     criterion: 'squared_error'
-    max_depth: 19
+    max_depth: 21
     max_features: 1
     min_samples_split: 10
     min_samples_leaf: 5
