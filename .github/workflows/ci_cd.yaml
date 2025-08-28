@@ -55,11 +55,13 @@ jobs:
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}      
 
-      - name: Build image
-        run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/swiggy-timepred:${{ github.sha }} -t ${{ secrets.DOCKERHUB_USERNAME }}/swiggy-timepred:1 .
-      - name: Push image
-        run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/swiggy-timepred:${{ github.sha }}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/swiggy-timepred:1
-
+      - name: Build and push
+        env:
+          DOCKERHUB_USER: ${{secrets.DOCKERHUB_USERNAME}}
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{env.DOCKERHUB_USER}}/swiggy-timepred:${{ github.sha }}
+            ${{env.DOCKERHUB_USER}}/swiggy-timepred:1
