@@ -63,5 +63,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{env.DOCKERHUB_USER}}/swiggy-timepred:${{ github.sha }}
+            ${{env.DOCKERHUB_USER}}/swiggy-timepred:1
             ${{env.DOCKERHUB_USER}}/swiggy-timepred:1
