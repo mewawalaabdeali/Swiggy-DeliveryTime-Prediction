@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y libgomp1
 
 WORKDIR /app
 
-COPY requirements-dockers.txt ./
+COPY requirements-docker.txt ./
 
 RUN pip install -r requirements-dockers.txt 
 
