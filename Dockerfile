@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY requirements-docker.txt ./
 
-RUN pip install -r requirements-dockers.txt 
+RUN pip install -r requirements-docker.txt 
 
 COPY app.py ./
 COPY ./models/preprocessor.joblib ./models/preprocessor.joblib
