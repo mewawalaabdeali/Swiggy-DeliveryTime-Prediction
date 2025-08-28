@@ -83,7 +83,7 @@ stages:
       params.yaml:
         Train.LightGBM:
           n_estimators: 154
-          max_depth: 29
+          max_depth: 27
           learning_rate: 0.22234435854395157
           subsample: 0.7592213724048168
           min_child_weight: 20
@@ -95,7 +95,7 @@ stages:
           criterion: squared_error
           max_depth: 17
           max_features: 1
-          min_samples_split: 10
+          min_samples_split: 9
           min_samples_leaf: 2
           max_samples: 0.6603673526197066
           verbose: 1
@@ -103,16 +103,16 @@ stages:
     outs:
     - path: models/model.joblib
       hash: md5
-      md5: dc68da42c1e19c9f4bc9075c8e9bdfb4
-      size: 145051944
+      md5: d50fa700b5ac2b46b8fd1c622bd7497c
+      size: 157783848
     - path: models/power_transformer.joblib
       hash: md5
       md5: abd018b8305b6b6a634ce19be9c89230
       size: 837
     - path: models/stacking_regressor.joblib
       hash: md5
-      md5: 116b140c7f20aa609827bc3373d0d387
-      size: 145048026
+      md5: c1a3953dec6d26075aa4c0c60b146fd8
+      size: 157779930
   evaluation:
     cmd: python src/models/evaluation.py
     deps:
@@ -126,24 +126,24 @@ stages:
       size: 4340736
     - path: models/model.joblib
       hash: md5
-      md5: dc68da42c1e19c9f4bc9075c8e9bdfb4
-      size: 145051944
+      md5: d50fa700b5ac2b46b8fd1c622bd7497c
+      size: 157783848
     - path: src/models/evaluation.py
       hash: md5
-      md5: 33b195a980fa782916769c642ccd7d1f
-      size: 5374
+      md5: 1ec7a13e58f60e3bb1e5b602e81d9198
+      size: 5385
     outs:
     - path: run_information.json
       hash: md5
-      md5: cddbb6f3bdb976ef05b6b84fc4faaf30
-      size: 219
+      md5: 4179a891afcdee43f0d71138a9cf3ba5
+      size: 225
   register_model:
     cmd: python src/models/register_model.py
     deps:
     - path: run_information.json
       hash: md5
-      md5: cddbb6f3bdb976ef05b6b84fc4faaf30
-      size: 219
+      md5: 4179a891afcdee43f0d71138a9cf3ba5
+      size: 225
     - path: src/models/register_model.py
       hash: md5
       md5: 0815ef3897c2e59afdddaf85e7bee2c6

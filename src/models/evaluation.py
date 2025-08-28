@@ -129,7 +129,7 @@ if __name__=="__main__":
         model_signature = mlflow.models.infer_signature(model_input=X_train.sample(20, random_state=42),
                                                         model_output = model.predict(X_train.sample(20, random_state=42)))
         
-        mlflow.sklearn.log_model(model, "delivery_time_pred_model", signature=model_signature)
+        mlflow.sklearn.log_model(model, "Swiggy-Deliver-TimePrediction", signature=model_signature)
 
         mlflow.log_artifact(root_path/"models"/"stacking_regressor.joblib")
         mlflow.log_artifact(root_path/"models"/"power_transformer.joblib")
@@ -139,7 +139,7 @@ if __name__=="__main__":
         logger.info("Mlflow Logging complete and model logged")
 
         run_id = run.info.run_id
-        model_name = "deliver_time_pred_model"
+        model_name = "Swiggy-Deliver-TimePrediction"
 
         save_json_path = root_path/"run_information.json"
         save_model_info(save_json_path=save_json_path,
