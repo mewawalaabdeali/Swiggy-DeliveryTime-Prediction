@@ -56,12 +56,12 @@ jobs:
           password: ${{secrets.DOCKERHUB_TOKEN}}      
 
       - name: Build image
-        run: docker build -t aliabde24/swiggy-time-prediction:${{ github.sha }} -t aliabde24/swiggy-time-prediction:stable .
+        run: docker build -t aliabde24/swiggy-time-prediction:${{ github.sha }} -t aliabde24/swiggy-time-prediction:stablecloud .
 
       - name: Push image
         run: |
           docker push aliabde24/swiggy-time-prediction:${{ github.sha }}
-          docker push aliabde24/swiggy-time-prediction:stable
+          docker push aliabde24/swiggy-time-prediction:stablecloud
 
       # - name: Login to Amazon ECR
       #   id: login-ecr
